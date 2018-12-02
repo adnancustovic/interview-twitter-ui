@@ -7,7 +7,9 @@
       <ul class="nav navbar-nav">
         <li routerLinkActive="active"><a routerLink="tweets/{{getCurrentUser()}}">My tweets</a>
         </li>
-        <li routerLinkActive="active"><a routerLink="tweets">Tweets</a>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="tweets">Tweets</a>
+        </li>
+        <li routerLinkActive="active"><a routerLink="profile">My profile</a>
         </li>
       </ul>
     </div>
