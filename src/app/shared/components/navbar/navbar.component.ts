@@ -8,10 +8,16 @@ import {AuthService} from "../../../services/auth.service";
   preserveWhitespaces: false,
 })
 export class NavbarComponent {
+  userLoggedIn = this.authService.getCurrentUser();
+
   constructor(private authService: AuthService) {
   }
 
   getCurrentUser(): string {
     return this.authService.getCurrentUser();
+  }
+
+  onLogout(){
+    this.authService.logout();
   }
 }

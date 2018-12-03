@@ -4,13 +4,19 @@
       <a routerLink="/" class="navbar-brand"><strong class="brand-title">Twitter</strong></a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav"  *ngIf="userLoggedIn">
         <li routerLinkActive="active"><a routerLink="tweets/{{getCurrentUser()}}">My tweets</a>
         </li>
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="tweets">Tweets</a>
         </li>
         <li routerLinkActive="active"><a routerLink="profile">My profile</a>
         </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" *ngIf="!userLoggedIn">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" *ngIf="userLoggedIn">
+        <li><a href="#" (click)="onLogout()"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
       </ul>
     </div>
   </div>
