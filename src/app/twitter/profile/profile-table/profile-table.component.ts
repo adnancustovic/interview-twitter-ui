@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { UserModel } from '../../../models/user.model';
+import { Component, Input } from '@angular/core';
+import { ProfileModel } from '../../../models/profile.model';
 
 @Component({
   selector: 'app-profile-table',
@@ -8,6 +8,6 @@ import { UserModel } from '../../../models/user.model';
 })
 export class ProfileTableComponent {
 
-  @Input() userProfile: UserModel;
+  @Input() userProfile: ProfileModel;
 
 }

@@ -3,7 +3,5 @@ export interface UserModel {
   name: string,
   surname: string,
   username : string,
-  numberOfTweets: number,
-  numberOfFollowers: number,
-  numberOfUserFollowing: number
+  password: string
 }

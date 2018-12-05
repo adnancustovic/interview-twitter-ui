@@ -13,7 +13,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right" *ngIf="!userLoggedIn">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a routerLink="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" *ngIf="userLoggedIn">
         <li><a href="#" (click)="onLogout()"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>

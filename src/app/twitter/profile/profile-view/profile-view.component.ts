@@ -1,8 +1,8 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs/Observable";
-import {ActivatedRoute, Params} from "@angular/router";
-import { UserModel } from '../../../models/user.model';
+import {ActivatedRoute} from "@angular/router";
 import { UserService } from '../../../services/user/user.service';
+import { ProfileModel } from '../../../models/profile.model';
 
 @Component({
   selector: 'app-profile-view',
@@ -11,15 +11,13 @@ import { UserService } from '../../../services/user/user.service';
 })
 export class ProfileViewComponent implements OnInit {
 
-  $user: Observable<UserModel>;
+  $user: Observable<ProfileModel>;
 
   constructor(private userService: UserService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(() => {
-      this.$user = this.userService.fetch();
-    });
+    this.$user = this.userService.fetch();
   }
 
 }

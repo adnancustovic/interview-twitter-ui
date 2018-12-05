@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {AuthGuard} from "./auth/auth.guard";
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,9 @@ const routes: Routes = [
     path: 'login',
     loadChildren: 'app/auth/auth.module#AuthModule',
   },
+  {
+    path: 'register', component: RegisterComponent
+  }
 ];
 
 @NgModule({
