@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, SimpleChanges} from '@angular/core';
 import {TweetModel} from "../../../models/tweet.model";
 
 @Component({
@@ -9,5 +9,12 @@ import {TweetModel} from "../../../models/tweet.model";
 export class UserTweetsTableComponent {
 
   @Input() tweets: TweetModel[];
+  @Input() tweetAdded: TweetModel;
+
+  ngOnChanges() {
+    if (this.tweetAdded != null &&  !this.tweets.find(x => x.id === this.tweetAdded.id)) 
+    //this.tweets.push(this.tweetAdded);
+    this.tweets = [this.tweetAdded,...this.tweets];
+  }
 
 }

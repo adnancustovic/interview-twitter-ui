@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {TweetModel} from "../../../models/tweet.model";
 import {TweetService} from "../../../services/tweet/tweet.service";
 import {Observable} from "rxjs/Observable";
@@ -11,7 +11,7 @@ import {ActivatedRoute, Params} from "@angular/router";
   styleUrls: ['./user-tweets-view.component.css']
 })
 export class UserTweetsViewComponent implements OnInit {
-
+  tweetRecieved: TweetModel;
   $tweets: Observable<TweetModel[]>;
   userName: string;
 
@@ -23,6 +23,10 @@ export class UserTweetsViewComponent implements OnInit {
       this.userName = params['username'];
       this.$tweets = this.tweetService.fetchForUser(this.userName);
     });
+  }
+
+  onTweetCreated(tweet: TweetModel) {
+    this.tweetRecieved = tweet;
   }
 
 }

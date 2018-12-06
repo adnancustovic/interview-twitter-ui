@@ -1,2 +1,2 @@
-<app-create-tweet></app-create-tweet>
-<app-user-tweets-table [tweets]="$tweets | async"></app-user-tweets-table>
+<app-create-tweet (tweetCreated)="onTweetCreated($event)"></app-create-tweet>
+<app-user-tweets-table [tweets]="$tweets | async" [tweetAdded]="tweetRecieved" ></app-user-tweets-table>
